@@ -1,7 +1,7 @@
 <template>
 <div class="hello">
   <div class="accountbg">
-    <img class="accountimg" :src="minesrc" />
+    <img @click="mine" class="accountimg" :src="minesrc" />
   </div>
   <h1>{{ msg }}</h1>
   <h2 @click='toast'>Essential Links</h2>
@@ -31,7 +31,6 @@ export default {
       });
     }
   }
-
 }
 </script>
 
