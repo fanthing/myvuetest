@@ -5,6 +5,7 @@
 </template>
 
 <script>
+import Bus from '@/bus';
 export default {
   name: "aboutUs",
   data() {
@@ -18,6 +19,14 @@ export default {
   mounted() {
     let userId = this.$route;
     console.log("userId", userId);
+  },
+  beforeRouteLeave(to, from, next) {
+    Bus.$emit('setHeader', {
+      titletext: '设置',
+      icontext: '&#xe69e;',
+      emitevent: '231'
+    });
+    next();
   }
 }
 </script>

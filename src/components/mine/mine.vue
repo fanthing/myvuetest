@@ -38,35 +38,36 @@ export default {
   name: 'mine',
   data() {
     return {
-      minesrc: 'http://172.16.1.137:8020/gym-web/img/gym/mine.png'
+      minesrc: '/static/img/logoPIC.png'
+      // minesrc: 'http://172.16.1.137:8020/gym-web/img/gym/mine.png'
     }
   },
   methods: {
-    toast: function() {
+    toast: function () {
       Toast({
         message: this.msg,
         position: 'bottom',
         duration: 2000
       });
     },
-    mine: function() {
+    mine: function () {
       Toast({
         message: this.msg,
         position: 'bottom',
         duration: 2000
       });
     },
-    gonext: function(page) {
+    gonext: function (page) {
       console.log("mine-gonext");
       switch (page) {
-        case 5:
-          this.$router.push({
-            name: "setting",
-            params: {
-              userId: 123
-            }
-          })
-          break;
+      case 5:
+        this.$router.push({
+          name: "setting",
+          params: {
+            userId: 123
+          }
+        })
+        break;
       }
       Bus.$emit('mine-gonext', false);
       Bus.$emit('mine-showHeader', true);

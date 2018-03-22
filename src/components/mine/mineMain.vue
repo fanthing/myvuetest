@@ -3,7 +3,7 @@
 
       <Myheader :titletext="titletext" :icontext="icontext" :emitevent="emitevent">
       </Myheader>
-  
+
     <transition name="component-fade" mode="out-in">
       <router-view>
       </router-view>
@@ -27,8 +27,11 @@ export default {
     Myheader
   },
   mounted() {
-    Bus.$on('231', (state) => {
-      console.log(state)
+    Bus.$on('setHeader', (state) => {
+      console.log("setHeader", state);
+      this.titletext = state.titletext
+      this.icontext = state.icontext
+      this.emitevent = state.emitevent
     })
   }
 }

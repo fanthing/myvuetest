@@ -30,6 +30,11 @@ export default {
       this.$router.push({
         path: "aboutUs"
       })
+      Bus.$emit('setHeader', {
+        titletext: '关于我们',
+        icontext: '',
+        emitevent: ''
+      });
     }
   },
   beforeCreate() {

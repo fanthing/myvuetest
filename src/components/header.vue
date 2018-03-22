@@ -21,11 +21,13 @@ export default {
   },
   props: ['titletext', 'icontext', 'emitevent', 'emitevents'],
   methods: {
-    goBack: function() {
+    goBack: function () {
       this.$router.go(-1);
     },
-    sendEmit: function() {
-      Bus.$emit(this.emitevent, 1);
+    sendEmit: function () {
+      if (this.emitevent != "") {
+        Bus.$emit(this.emitevent, 1);
+      }
     }
   },
   mounted() {
