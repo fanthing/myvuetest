@@ -1,20 +1,31 @@
 <template lang="html">
-<div class="hello">
+<div class="mine-div">
   <div class="accountbg">
     <img @click="mine" class="accountimg" :src="minesrc" />
   </div>
   <div class="page-cell">
-    <mt-cell title="标题文字" icon="more" is-link>
-      <i slot="icon" class="iconfont">&#xe60c;</i>
+    <mt-cell title="我的服务商" icon="more" is-link @click.native="gonext(1)">
+      <i slot="icon" class="iconfont mineicon">&#xe679;</i>
     </mt-cell>
-    <mt-cell title="路由跳转" label="跳转到 /#/toast" is-link @click.native="gonext(1)"></mt-cell>
+    <mt-cell title="围栏管理" icon="more" is-link @click.native="gonext(2)">
+      <i slot="icon" class="iconfont mineicon">&#xe610;</i>
+    </mt-cell>
+    <mt-cell title="意见反馈" icon="more" is-link @click.native="gonext(3)">
+      <i slot="icon" class="iconfont mineicon">&#xe605;</i>
+    </mt-cell>
+    <mt-cell title="常见问题" icon="more" is-link @click.native="gonext(4)">
+      <i slot="icon" class="iconfont mineicon">&#xe60b;</i>
+    </mt-cell>
+    <mt-cell title="设置" icon="more" is-link @click.native="gonext(5)">
+      <i slot="icon" class="iconfont mineicon">&#xe622;</i>
+    </mt-cell>
   </div>
 </div>
 </template>
 
 <script>
 import Vue from 'vue';
-import Bus from '../../bus';
+import Bus from '@/bus';
 import {
   Toast,
   Cell
@@ -27,7 +38,7 @@ export default {
   name: 'mine',
   data() {
     return {
-      minesrc: 'http://127.0.0.1:8020/gym-web/img/gym/mine.png'
+      minesrc: 'http://172.16.1.137:8020/gym-web/img/gym/mine.png'
     }
   },
   methods: {
@@ -46,13 +57,19 @@ export default {
       });
     },
     gonext: function(page) {
-      this.$router.push({
-        name: "setting",
-        params: {
-          userId: 123
-        }
-      })
+      console.log("mine-gonext");
+      switch (page) {
+        case 5:
+          this.$router.push({
+            name: "setting",
+            params: {
+              userId: 123
+            }
+          })
+          break;
+      }
       Bus.$emit('mine-gonext', false);
+      Bus.$emit('mine-showHeader', true);
     }
   }
 }
@@ -91,7 +108,7 @@ li {
   width: 90px;
 }
 
-a {
-  color: #42b983;
+.mineicon {
+  font-size: 22px;
 }
 </style>

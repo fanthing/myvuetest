@@ -3,6 +3,7 @@
   <transition name="component-fade" mode="out-in">
   <router-view/>
   </transition>
+  <transition name="component-fade" mode="out-in">
   <mt-tabbar v-model="selected" fixed v-show="tabbarshow">
     <mt-tab-item id="location">
       <i class="iconfont tabbar-icon">&#xe618;</i> 定位
@@ -17,12 +18,13 @@
       <i class="iconfont tabbar-icon">&#xe60c;</i> 我的
     </mt-tab-item>
   </mt-tabbar>
+    </transition>
 </div>
 </template>
 
 <script>
 import Vue from 'vue';
-import Bus from './bus';
+import Bus from '@/bus';
 
 import {
   Tabbar,
@@ -41,6 +43,7 @@ export default {
   },
   mounted() {
     Bus.$on('mine-gonext', (state) => {
+      console.log("App.vue");
       this.tabbarshow = state;
     })
   }
@@ -67,7 +70,10 @@ export default {
   color: #49B144;
 }
 
-.component-fade-enter-active,
+.component-fade-enter-active {
+  transition: opacity .3s ease;
+}
+
 .component-fade-leave-active {
   transition: opacity .3s ease;
 }
