@@ -41,6 +41,7 @@ export default {
 
   },
   mounted() {
+    Bus.$emit('click-showHeader', true);
     // console.log(this.$route.params.userId);
     // console.log("appid=" + api.appId);
     // const userInfo = $api.getStorage('userinfo');

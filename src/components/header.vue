@@ -16,13 +16,17 @@ import Bus from '@/bus';
 export default {
   data() {
     return {
-      gobackshow: false
+      gobackshow: false,
+      canuseClick: true //true表示当前可用
     }
   },
   props: ['titletext', 'icontext', 'emitevent', 'emitevents'],
   methods: {
     goBack: function () {
-      this.$router.go(-1);
+      if (this.canuseClick) {
+        this.canuseClick = false;
+        this.$router.go(-1);
+      }
     },
     sendEmit: function () {
       if (this.emitevent != "") {
@@ -40,6 +44,9 @@ export default {
         this.gobackshow = state;
       }
 
+    })
+    Bus.$on('click-showHeader', (state) => {
+      this.canuseClick = state;
     })
   }
 }
