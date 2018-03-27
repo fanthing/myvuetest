@@ -4,9 +4,9 @@
       <Myheader :titletext="titletext" :icontext="icontext" :emitevent="emitevent">
       </Myheader>
 
-    <transition name="component-fade" mode="out-in">
+    <transition name="fade" mode="out-in">
       <router-view>
-      </router-view>
+      </router-view> 
     </transition>
   </div>
 </template>

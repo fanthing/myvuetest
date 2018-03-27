@@ -43,33 +43,66 @@ export default {
     }
   },
   methods: {
-    toast: function () {
+    toast: function() {
       Toast({
         message: this.msg,
         position: 'bottom',
         duration: 2000
       });
     },
-    mine: function () {
+    mine: function() {
       Toast({
         message: this.msg,
         position: 'bottom',
         duration: 2000
       });
     },
-    gonext: function (page) {
-      console.log("mine-gonext");
+    gonext: function(page) {
+      console.log("mine-tabbarshow");
       switch (page) {
-      case 5:
-        this.$router.push({
-          name: "setting",
-          params: {
-            userId: 123
-          }
-        })
-        break;
+        case 1:
+          this.$router.push({
+            path: "mine/myserver"
+          })
+          Bus.$emit('setHeader', {
+            titletext: '我的服务商',
+            icontext: '',
+            emitevent: ''
+          });
+          break;
+        case 3:
+          this.$router.push({
+            path: "mine/checkblock",
+            query: {
+              userId: 123
+            }
+          })
+          Bus.$emit('setHeader', {
+            titletext: '意见反馈',
+            icontext: '',
+            emitevent: ''
+          });
+          break;
+        case 4:
+          this.$router.push({
+            path: "mine/faq"
+          })
+          Bus.$emit('setHeader', {
+            titletext: '常见问题',
+            icontext: '',
+            emitevent: ''
+          });
+          break;
+        case 5:
+          this.$router.push({
+            name: "setting",
+            params: {
+              userId: 123
+            }
+          })
+          break;
       }
-      Bus.$emit('mine-gonext', false);
+      Bus.$emit('mine-tabbarshow', false);
       Bus.$emit('mine-showHeader', true);
     }
   }
@@ -110,6 +143,6 @@ li {
 }
 
 .mineicon {
-  font-size: 22px;
+  font-size: 1.1rem;
 }
 </style>

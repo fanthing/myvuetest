@@ -1,9 +1,9 @@
 <template lang="html">
 <div id="app">
-  <transition name="component-fade" mode="out-in">
+  <transition name="fade" mode="out-in">
   <router-view/>
   </transition>
-  <transition name="component-fade" mode="out-in">
+  <transition name="fade" mode="out-in">
   <mt-tabbar v-model="selected" fixed v-show="tabbarshow">
     <mt-tab-item id="location">
       <i class="iconfont tabbar-icon">&#xe618;</i> 定位
@@ -23,16 +23,8 @@
 </template>
 
 <script>
-import Vue from 'vue';
 import Bus from '@/bus';
 
-import {
-  Tabbar,
-  TabItem
-} from 'mint-ui';
-
-Vue.component(Tabbar.name, Tabbar);
-Vue.component(TabItem.name, TabItem);
 export default {
   name: 'App',
   data() {
@@ -42,7 +34,7 @@ export default {
     };
   },
   mounted() {
-    Bus.$on('mine-gonext', (state) => {
+    Bus.$on('mine-tabbarshow', (state) => {
       console.log("App.vue");
       this.tabbarshow = state;
     })
@@ -68,21 +60,5 @@ export default {
 
 .mint-tabbar>.mint-tab-item.is-selected {
   color: #49B144;
-}
-
-.component-fade-enter-active {
-  transition: opacity .3s ease;
-}
-
-.component-fade-leave-active {
-  transition: opacity .3s ease;
-}
-
-.component-fade-enter,
-.component-fade-leave-to
-/* .component-fade-leave-active for below version 2.1.8 */
-
-  {
-  opacity: 0;
 }
 </style>

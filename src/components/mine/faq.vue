@@ -1,24 +1,15 @@
 <template lang="html">
-    <div class="page-cell">
-      <!-- <mt-cell title="消息设置" icon="more" is-link @click.native="gonext(1)">
-        <i slot="icon" class="iconfont mineicon">&#xe612;</i>
-      </mt-cell> -->
-      <div class="">
-        <mt-cell title="关于我们" icon="more" is-link @click.native="gonext(1)">
-          <i slot="icon" class="iconfont mineicon">&#xe673;</i>
-        </mt-cell>
-        <mt-cell title="当前版本" icon="more" value="test0.01">
-          <i slot="icon" class="iconfont mineicon">&#xe63e;</i>
-        </mt-cell>
-      </div>
-    </div>
+  <div class="">
+    <mt-cell  title="1、GT200常见问题" is-link  @click.native="gonext(1)">
+  </mt-cell>
+  </div>
 </template>
 
 <script>
 import Bus from '@/bus';
 
 export default {
-  name: 'setting',
+  name: 'faq',
   data() {
     return {
 
@@ -58,7 +49,4 @@ export default {
 </script>
 
 <style lang="css">
-.mineicon {
-  font-size:1.1rem;
-}
 </style>

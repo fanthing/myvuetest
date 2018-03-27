@@ -1,7 +1,7 @@
 <template lang="html">
   <header >
-    <div style="height:20px;"></div>
-    <transition name="component-fade" mode="out-in">
+    <div class="header-div" style="height:20px;"></div>
+    <transition name="fade" mode="out-in">
       <div class="page-back" v-show="gobackshow" >
         <a class="left" @click="goBack()"><i class="mintui mintui-back"></i></a>
         <div class="title-setting">{{titletext}}</div>
@@ -22,13 +22,13 @@ export default {
   },
   props: ['titletext', 'icontext', 'emitevent', 'emitevents'],
   methods: {
-    goBack: function () {
+    goBack: function() {
       if (this.canuseClick) {
         this.canuseClick = false;
         this.$router.go(-1);
       }
     },
-    sendEmit: function () {
+    sendEmit: function() {
       if (this.emitevent != "") {
         Bus.$emit(this.emitevent, 1);
       }
@@ -52,13 +52,15 @@ export default {
 }
 </script>
 
-<style lang="css">
+<style scoped lang="css">
 header{
 	width: 100%;
 	text-align: center;
-	background-color: #424242;
 	color: #fff;
 	font-size: 20px;
+}
+.header-div{
+  background-color: #424242;
 }
 header a{
   position: absolute;
@@ -79,5 +81,6 @@ header .page-back{
   	width: 100%;
     height: 42px;
     line-height: 42px;
+    background-color: #424242;
 }
 </style>
