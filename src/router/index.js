@@ -7,6 +7,7 @@ import aboutUs from '@/components/mine/aboutUs';
 import myserver from '@/components/mine/myserver';
 import checkblock from '@/components/mine/my-checkblock';
 import faq from '@/components/mine/faq';
+import faqdetail from '@/components/mine/faqdetail';
 
 Vue.use(Router)
 
@@ -22,7 +23,8 @@ export default new Router({
         { path: 'aboutUs', component: aboutUs },
         { path: 'myserver', component: myserver },
         { path: 'checkblock', component: checkblock },
-        { path: 'faq', component: faq }
+        { path: 'faq', component: faq },
+        { path: 'faqdetail', component: faqdetail }
 
       ]
     }

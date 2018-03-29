@@ -19,13 +19,8 @@ export default {
     gonext() {
       console.log("setting-gonext");
       this.$router.push({
-        path: "aboutUs"
+        path: "/mine/faqdetail"
       })
-      Bus.$emit('setHeader', {
-        titletext: '关于我们',
-        icontext: '',
-        emitevent: ''
-      });
     }
   },
   beforeCreate() {

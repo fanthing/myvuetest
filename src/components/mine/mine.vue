@@ -19,6 +19,54 @@
     <mt-cell title="设置" icon="more" is-link @click.native="gonext(5)">
       <i slot="icon" class="iconfont mineicon">&#xe622;</i>
     </mt-cell>
+    <mt-cell title="设置" icon="more" is-link @click.native="gonext(5)">
+      <i slot="icon" class="iconfont mineicon">&#xe622;</i>
+    </mt-cell>
+    <mt-cell title="设置" icon="more" is-link @click.native="gonext(5)">
+      <i slot="icon" class="iconfont mineicon">&#xe622;</i>
+    </mt-cell>
+    <mt-cell title="设置" icon="more" is-link @click.native="gonext(5)">
+      <i slot="icon" class="iconfont mineicon">&#xe622;</i>
+    </mt-cell>
+    <mt-cell title="设置" icon="more" is-link @click.native="gonext(5)">
+      <i slot="icon" class="iconfont mineicon">&#xe622;</i>
+    </mt-cell>
+    <mt-cell title="设置" icon="more" is-link @click.native="gonext(5)">
+      <i slot="icon" class="iconfont mineicon">&#xe622;</i>
+    </mt-cell>
+    <mt-cell title="设置" icon="more" is-link @click.native="gonext(5)">
+      <i slot="icon" class="iconfont mineicon">&#xe622;</i>
+    </mt-cell>
+    <mt-cell title="设置" icon="more" is-link @click.native="gonext(5)">
+      <i slot="icon" class="iconfont mineicon">&#xe622;</i>
+    </mt-cell>
+    <mt-cell title="设置" icon="more" is-link @click.native="gonext(5)">
+      <i slot="icon" class="iconfont mineicon">&#xe622;</i>
+    </mt-cell>
+    <mt-cell title="设置" icon="more" is-link @click.native="gonext(5)">
+      <i slot="icon" class="iconfont mineicon">&#xe622;</i>
+    </mt-cell>
+    <mt-cell title="设置" icon="more" is-link @click.native="gonext(5)">
+      <i slot="icon" class="iconfont mineicon">&#xe622;</i>
+    </mt-cell>
+    <mt-cell title="设置" icon="more" is-link @click.native="gonext(5)">
+      <i slot="icon" class="iconfont mineicon">&#xe622;</i>
+    </mt-cell>
+    <mt-cell title="设置" icon="more" is-link @click.native="gonext(5)">
+      <i slot="icon" class="iconfont mineicon">&#xe622;</i>
+    </mt-cell>
+    <mt-cell title="设置" icon="more" is-link @click.native="gonext(5)">
+      <i slot="icon" class="iconfont mineicon">&#xe622;</i>
+    </mt-cell>
+    <mt-cell title="设置3" icon="more" is-link @click.native="gonext(5)">
+      <i slot="icon" class="iconfont mineicon">&#xe622;</i>
+    </mt-cell>
+    <mt-cell title="设置2" icon="more" is-link @click.native="gonext(5)">
+      <i slot="icon" class="iconfont mineicon">&#xe622;</i>
+    </mt-cell>
+    <mt-cell title="qq1" icon="more" is-link @click.native="gonext(5)">
+      <i slot="icon" class="iconfont mineicon">&#xe622;</i>
+    </mt-cell>
   </div>
 </div>
 </template>
@@ -62,7 +110,7 @@ export default {
       switch (page) {
         case 1:
           this.$router.push({
-            path: "mine/myserver"
+            path: "/mine/myserver"
           })
           Bus.$emit('setHeader', {
             titletext: '我的服务商',
@@ -72,7 +120,7 @@ export default {
           break;
         case 3:
           this.$router.push({
-            path: "mine/checkblock",
+            path: "/mine/checkblock",
             query: {
               userId: 123
             }
@@ -85,7 +133,7 @@ export default {
           break;
         case 4:
           this.$router.push({
-            path: "mine/faq"
+            path: "/mine/faq"
           })
           Bus.$emit('setHeader', {
             titletext: '常见问题',

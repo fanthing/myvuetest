@@ -1,10 +1,10 @@
 <template lang="html">
 <div id="app">
   <transition name="fade" mode="out-in">
-  <router-view/>
+  <router-view class="client-view"/>
   </transition>
   <transition name="fade" mode="out-in">
-  <mt-tabbar v-model="selected" fixed v-show="tabbarshow">
+  <mt-tabbar v-model="selected" fixed v-show="tabbarshow" ref="tabbar">
     <mt-tab-item id="location">
       <i class="iconfont tabbar-icon">&#xe618;</i> 定位
     </mt-tab-item>
@@ -37,7 +37,10 @@ export default {
     Bus.$on('mine-tabbarshow', (state) => {
       console.log("App.vue");
       this.tabbarshow = state;
-    })
+    });
+    console.log("底部高度", this.$refs.tabbar.$el.offsetHeight);
+    this.$refs.clientView.$el.height = (window.outerHeight - this.$refs.tabbar.$el.offsetHeight) + "px";
+    console.log(this.$refs.clientView.$el.height)
   }
 }
 </script>
@@ -60,5 +63,10 @@ export default {
 
 .mint-tabbar>.mint-tab-item.is-selected {
   color: #49B144;
+}
+
+.client-view {
+  margin-bottom: 53px;
+  overflow: hidden;
 }
 </style>
