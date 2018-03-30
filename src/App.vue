@@ -38,9 +38,10 @@ export default {
       console.log("App.vue");
       this.tabbarshow = state;
     });
-    console.log("底部高度", this.$refs.tabbar.$el.offsetHeight);
-    this.$refs.clientView.$el.height = (window.outerHeight - this.$refs.tabbar.$el.offsetHeight) + "px";
-    console.log(this.$refs.clientView.$el.height)
+    console.log(this.$store.getters.tabbarHeight)
+    // console.log("底部高度", this.$refs.tabbar.$el.offsetHeight);
+    // this.$refs.clientView.$el.height = (window.outerHeight - this.$refs.tabbar.$el.offsetHeight) + "px";
+    // console.log(this.$refs.clientView.$el.height)
   }
 }
 </script>
@@ -63,10 +64,5 @@ export default {
 
 .mint-tabbar>.mint-tab-item.is-selected {
   color: #49B144;
-}
-
-.client-view {
-  margin-bottom: 53px;
-  overflow: hidden;
 }
 </style>

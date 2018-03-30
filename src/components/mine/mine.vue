@@ -1,5 +1,5 @@
 <template lang="html">
-<div class="mine-div">
+<div class="mine-div" :style="tabbarHeight">
   <div class="accountbg">
     <img @click="mine" class="accountimg" :src="minesrc" />
   </div>
@@ -17,54 +17,6 @@
       <i slot="icon" class="iconfont mineicon">&#xe60b;</i>
     </mt-cell>
     <mt-cell title="设置" icon="more" is-link @click.native="gonext(5)">
-      <i slot="icon" class="iconfont mineicon">&#xe622;</i>
-    </mt-cell>
-    <mt-cell title="设置" icon="more" is-link @click.native="gonext(5)">
-      <i slot="icon" class="iconfont mineicon">&#xe622;</i>
-    </mt-cell>
-    <mt-cell title="设置" icon="more" is-link @click.native="gonext(5)">
-      <i slot="icon" class="iconfont mineicon">&#xe622;</i>
-    </mt-cell>
-    <mt-cell title="设置" icon="more" is-link @click.native="gonext(5)">
-      <i slot="icon" class="iconfont mineicon">&#xe622;</i>
-    </mt-cell>
-    <mt-cell title="设置" icon="more" is-link @click.native="gonext(5)">
-      <i slot="icon" class="iconfont mineicon">&#xe622;</i>
-    </mt-cell>
-    <mt-cell title="设置" icon="more" is-link @click.native="gonext(5)">
-      <i slot="icon" class="iconfont mineicon">&#xe622;</i>
-    </mt-cell>
-    <mt-cell title="设置" icon="more" is-link @click.native="gonext(5)">
-      <i slot="icon" class="iconfont mineicon">&#xe622;</i>
-    </mt-cell>
-    <mt-cell title="设置" icon="more" is-link @click.native="gonext(5)">
-      <i slot="icon" class="iconfont mineicon">&#xe622;</i>
-    </mt-cell>
-    <mt-cell title="设置" icon="more" is-link @click.native="gonext(5)">
-      <i slot="icon" class="iconfont mineicon">&#xe622;</i>
-    </mt-cell>
-    <mt-cell title="设置" icon="more" is-link @click.native="gonext(5)">
-      <i slot="icon" class="iconfont mineicon">&#xe622;</i>
-    </mt-cell>
-    <mt-cell title="设置" icon="more" is-link @click.native="gonext(5)">
-      <i slot="icon" class="iconfont mineicon">&#xe622;</i>
-    </mt-cell>
-    <mt-cell title="设置" icon="more" is-link @click.native="gonext(5)">
-      <i slot="icon" class="iconfont mineicon">&#xe622;</i>
-    </mt-cell>
-    <mt-cell title="设置" icon="more" is-link @click.native="gonext(5)">
-      <i slot="icon" class="iconfont mineicon">&#xe622;</i>
-    </mt-cell>
-    <mt-cell title="设置" icon="more" is-link @click.native="gonext(5)">
-      <i slot="icon" class="iconfont mineicon">&#xe622;</i>
-    </mt-cell>
-    <mt-cell title="设置3" icon="more" is-link @click.native="gonext(5)">
-      <i slot="icon" class="iconfont mineicon">&#xe622;</i>
-    </mt-cell>
-    <mt-cell title="设置2" icon="more" is-link @click.native="gonext(5)">
-      <i slot="icon" class="iconfont mineicon">&#xe622;</i>
-    </mt-cell>
-    <mt-cell title="qq1" icon="more" is-link @click.native="gonext(5)">
       <i slot="icon" class="iconfont mineicon">&#xe622;</i>
     </mt-cell>
   </div>
@@ -86,7 +38,10 @@ export default {
   name: 'mine',
   data() {
     return {
-      minesrc: '/static/img/logoPIC.png'
+      minesrc: '/static/img/logoPIC.png',
+      tabbarHeight: {
+        'padding-bottom': this.$store.getters.tabbarHeight + 'px'
+      }
       // minesrc: 'http://172.16.1.137:8020/gym-web/img/gym/mine.png'
     }
   },

@@ -3,16 +3,15 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
-import 'vue2-animate/dist/vue2-animate.css'
 import fastclick from 'fastclick'
 import store from '@/store';
 import {
   Tabbar,
   TabItem,
-  Field,Button
+  Field,Button,Loadmore
 } from 'mint-ui';
+Vue.component(Loadmore.name, Loadmore);
 fastclick.attach(document.body)
-Vue.use(Vuex)
 Vue.component(Field.name, Field)
 Vue.component(Tabbar.name, Tabbar)
 Vue.component(TabItem.name, TabItem)
