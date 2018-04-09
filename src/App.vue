@@ -42,6 +42,11 @@ export default {
     // console.log("底部高度", this.$refs.tabbar.$el.offsetHeight);
     // this.$refs.clientView.$el.height = (window.outerHeight - this.$refs.tabbar.$el.offsetHeight) + "px";
     // console.log(this.$refs.clientView.$el.height)
+  },
+  watch: {
+    selected(curVal, oldVal) {
+      console.log(curVal + "---" + oldVal)
+    }
   }
 }
 </script>

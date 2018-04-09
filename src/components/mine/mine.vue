@@ -7,9 +7,9 @@
     <mt-cell title="我的服务商" icon="more" is-link @click.native="gonext(1)">
       <i slot="icon" class="iconfont mineicon">&#xe679;</i>
     </mt-cell>
-    <mt-cell title="围栏管理" icon="more" is-link @click.native="gonext(2)">
+    <!-- <mt-cell title="围栏管理" icon="more" is-link @click.native="gonext(2)">
       <i slot="icon" class="iconfont mineicon">&#xe610;</i>
-    </mt-cell>
+    </mt-cell> -->
     <mt-cell title="意见反馈" icon="more" is-link @click.native="gonext(3)">
       <i slot="icon" class="iconfont mineicon">&#xe605;</i>
     </mt-cell>
@@ -46,64 +46,69 @@ export default {
     }
   },
   methods: {
-    toast: function() {
+    toast: function () {
       Toast({
         message: this.msg,
         position: 'bottom',
         duration: 2000
       });
     },
-    mine: function() {
-      Toast({
-        message: this.msg,
-        position: 'bottom',
-        duration: 2000
+    mine: function () {
+      this.$router.push({
+        path: "/mine/accountmsg"
+      })
+      Bus.$emit('setHeader', {
+        titletext: '个人资料',
+        icontext: '',
+        emitevent: ''
       });
+      Bus.$emit('mine-tabbarshow', false);
+      Bus.$emit('mine-showHeader', true);
     },
-    gonext: function(page) {
+    gonext: function (page) {
       console.log("mine-tabbarshow");
       switch (page) {
-        case 1:
-          this.$router.push({
-            path: "/mine/myserver"
-          })
-          Bus.$emit('setHeader', {
-            titletext: '我的服务商',
-            icontext: '',
-            emitevent: ''
-          });
-          break;
-        case 3:
-          this.$router.push({
-            path: "/mine/checkblock",
-            query: {
-              userId: 123
-            }
-          })
-          Bus.$emit('setHeader', {
-            titletext: '意见反馈',
-            icontext: '',
-            emitevent: ''
-          });
-          break;
-        case 4:
-          this.$router.push({
-            path: "/mine/faq"
-          })
-          Bus.$emit('setHeader', {
-            titletext: '常见问题',
-            icontext: '',
-            emitevent: ''
-          });
-          break;
-        case 5:
-          this.$router.push({
-            name: "setting",
-            params: {
-              userId: 123
-            }
-          })
-          break;
+      case 1:
+        this.$router.push({
+          path: "/mine/myserver"
+        })
+        Bus.$emit('setHeader', {
+          titletext: '我的服务商',
+          icontext: '',
+          emitevent: ''
+        });
+        break;
+      case 3:
+        this.$router.push({
+          path: "/mine/checkblock",
+          query: {
+            userId: 123
+          }
+        })
+        Bus.$emit('setHeader', {
+          titletext: '意见反馈',
+          icontext: '',
+          emitevent: ''
+        });
+        break;
+      case 4:
+        this.$router.push({
+          path: "/mine/faq"
+        })
+        Bus.$emit('setHeader', {
+          titletext: '常见问题',
+          icontext: '',
+          emitevent: ''
+        });
+        break;
+      case 5:
+        this.$router.push({
+          name: "setting",
+          params: {
+            userId: 123
+          }
+        })
+        break;
       }
       Bus.$emit('mine-tabbarshow', false);
       Bus.$emit('mine-showHeader', true);
