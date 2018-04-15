@@ -10,6 +10,10 @@ import faq from '@/components/mine/faq';
 import faqdetail from '@/components/mine/faqdetail';
 import accountmsg from '@/components/mine/accountmsg';
 import password from '@/components/mine/updatePassword';
+import electronicfence from '@/components/mine/electronicfence';
+
+import MessageMain from '@/components/message/messagemain';
+import MessageList from '@/components/message/messagelist';
 
 Vue.use(Router)
 
@@ -31,6 +35,10 @@ export default new Router({
       {
         path: 'aboutUs',
         component: aboutUs
+      },
+      {
+        path: 'electronicfence',
+        component: electronicfence
       },
       {
         path: 'myserver',
@@ -60,11 +68,10 @@ export default new Router({
   }, {
     path: '/message',
     // name: 'mine',
-    component: MineMain,
+    component: MessageMain,
     children: [{
-        path: '',
-        name: 'mine',
-        component: Mine
+        path: 'list',
+        component: MessageList
       },
       {
         path: 'setting',

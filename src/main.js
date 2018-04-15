@@ -8,7 +8,9 @@ import store from '@/store';
 import {
   Tabbar,
   TabItem,
-  Field,Button,Loadmore
+  Field,
+  Button,
+  Loadmore
 } from 'mint-ui';
 Vue.component(Loadmore.name, Loadmore);
 fastclick.attach(document.body)
@@ -24,6 +26,8 @@ new Vue({
   el: '#app',
   router,
   store,
-  components: { App },
+  components: {
+    App
+  },
   template: '<App/>'
 })
