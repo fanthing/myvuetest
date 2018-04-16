@@ -13,7 +13,7 @@
 
 <script>
 import Bus from '@/bus';
-import Myheader from '@/components/mine/header';
+import Myheader from '@/components/message/header';
 export default {
   data() {
     return {
@@ -27,7 +27,7 @@ export default {
     Myheader
   },
   mounted() {
-    Bus.$on('setHeader', (state) => {
+    Bus.$on('setMessageHeader', (state) => {
       console.log("setHeader", state);
       this.titletext = state.titletext
       this.icontext = state.icontext
@@ -35,16 +35,11 @@ export default {
     })
   },
   beforeRouteLeave(to, from, next) {
-    Bus.$off('click-showHeader')
-    Bus.$off('mine-showHeader')
-    Bus.$off('setHeader')
+    Bus.$off('setMessageHeader')
     next()
   }
 }
 </script>
 
-<style scoped lang="css">
-.mine-box{
-  /* overflow: hidden; */
-}
+<style lang="css">
 </style>

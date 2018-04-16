@@ -7,9 +7,9 @@
     <mt-cell title="我的服务商" icon="more" is-link @click.native="gonext(1)">
       <i slot="icon" class="iconfont mineicon">&#xe679;</i>
     </mt-cell>
-    <!-- <mt-cell title="围栏管理" icon="more" is-link @click.native="gonext(2)">
+    <mt-cell title="围栏管理" icon="more" is-link @click.native="gonext(2)">
       <i slot="icon" class="iconfont mineicon">&#xe610;</i>
-    </mt-cell> -->
+    </mt-cell>
     <mt-cell title="意见反馈" icon="more" is-link @click.native="gonext(3)">
       <i slot="icon" class="iconfont mineicon">&#xe605;</i>
     </mt-cell>
@@ -78,6 +78,16 @@ export default {
           emitevent: ''
         });
         break;
+      case 2:
+        this.$router.push({
+          path: "/mine/electronicfence"
+        })
+        Bus.$emit('setHeader', {
+          titletext: '围栏管理',
+          icontext: '&#xe752;',
+          emitevent: 'createfence'
+        });
+        break;
       case 3:
         this.$router.push({
           path: "/mine/checkblock",
@@ -108,6 +118,11 @@ export default {
             userId: 123
           }
         })
+        Bus.$emit('setHeader', {
+          titletext: '设置',
+          icontext: '',
+          emitevent: ''
+        });
         break;
       }
       Bus.$emit('mine-tabbarshow', false);

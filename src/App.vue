@@ -46,6 +46,18 @@ export default {
   watch: {
     selected(curVal, oldVal) {
       console.log(curVal + "---" + oldVal)
+      switch (curVal) {
+      case 'message':
+        this.$router.push({
+          path: "/message/list"
+        })
+        break;
+      case 'mine':
+        this.$router.push({
+          path: "/mine"
+        })
+        break;
+      }
     }
   }
 }
